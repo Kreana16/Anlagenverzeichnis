@@ -10,5 +10,20 @@ package bl;
  * @author sasch
  */
 public enum AnlagenverzeichnisEnum {
-    
+    NAME("Bezeichnung"),
+    AK("Arbeiter Kammer"),
+    INBET("Inbetriebnahme"),
+    ND("ND"),
+    BISHND("Bis h ND"),
+    AFA("AFA"),
+    NOAFA("No AFA"),
+    AFADJ("AFA Dj"),
+    BW("BW");
+    String name;
+    AnlagenverzeichnisEnum(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
 }
