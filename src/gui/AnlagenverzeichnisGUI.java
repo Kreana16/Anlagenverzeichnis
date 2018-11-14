@@ -6,6 +6,9 @@
 package gui;
 
 import bl.AnlagenverzeichnisModel;
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -19,6 +22,7 @@ public class AnlagenverzeichnisGUI extends javax.swing.JFrame {
     AnlagenverzeichnisModel model=new AnlagenverzeichnisModel();
     public AnlagenverzeichnisGUI() {
         initComponents();
+        fillCb();
         tbOutput.setModel(model);
     }
 
@@ -44,6 +48,11 @@ public class AnlagenverzeichnisGUI extends javax.swing.JFrame {
         cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btUpdate.setText("Update Table");
+        btUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onUpdate(evt);
+            }
+        });
 
         tbOutput.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,6 +96,17 @@ public class AnlagenverzeichnisGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void onUpdate(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onUpdate
+        model.filter(Float.parseFloat((String)cbYear.getSelectedItem()));
+    }//GEN-LAST:event_onUpdate
+    private void load(){
+        model.load(new File("\\src\\resurce\\Anlagenverzeichnis.csv"));
+    }
+    private void fillCb(){
+        for(float i=2000;i<2020;i+=0.5){
+            cbYear.addItem(""+i);
+        }
+    }
     /**
      * @param args the command line arguments
      */
