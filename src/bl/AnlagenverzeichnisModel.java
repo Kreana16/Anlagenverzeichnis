@@ -32,12 +32,12 @@ public class AnlagenverzeichnisModel extends AbstractTableModel{
         switch(AnlagenverzeichnisEnum.values()[i1]){
             case NAME:return e.getName();
             case AK:return e.getAk();
-            case INBET:return e.getInbat();
+            case INBET:return e.getInbet();
             case ND:return e.getNd();
             case BISHND:e.getBishnd();
             case AFA:e.getAfa();
-            case NOAFA:e.getNoafa();
-            case AFADJ:e.getAfadj();
+            case NOAFA:e.getNoAfa();
+            case AFADJ:e.getAfaDJ();
             case BW:e.getBw();
         }
         return null;
