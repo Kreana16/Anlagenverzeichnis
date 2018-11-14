@@ -15,16 +15,12 @@ public class Entry {
     double ak,afa,noAfa,afaDJ,bw;
     float inbet,nd,bishnd;
     
-    public Entry(String name,double ak,float inbet,float nd,float bishnd,double afa,double noAfa, double afaDJ,double bw){
+    public Entry(String name,double ak,float inbet,float nd){
         this.name=name;
         this.ak=ak;
         this.inbet=inbet;
         this.nd=nd;
         this.bishnd=nd;
-        this.afa=afa;
-        this.noAfa=afa;
-        this.afaDJ=afaDJ;
-        this.bw=bw;
     }
 
     public String getName() {
