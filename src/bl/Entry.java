@@ -7,6 +7,7 @@ package bl;
 
 /**
  *
+=======
  * @author Andreas
  */
 public class Entry {
