@@ -6,6 +6,8 @@
 package bl;
 
 import static bl.AnlagenverzeichnisEnum.*;
+import bl.AnlagenverzeichnisCSV;
+import java.io.File;
 import java.util.List;
 import java.util.LinkedList;
 import javax.swing.table.AbstractTableModel;
@@ -16,6 +18,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class AnlagenverzeichnisModel extends AbstractTableModel{
     List<Entry> l=new LinkedList();
+    List<Entry> all= new LinkedList();
     @Override
     public int getRowCount() {
         return l.size();
@@ -57,6 +60,24 @@ public class AnlagenverzeichnisModel extends AbstractTableModel{
             case BW:return BW.getName();
         }
         return null;
+    }
+    public void load(File file){
+        AnlagenverzeichnisCSV csv = new AnlagenverzeichnisCSV();
+        this.all=csv.read(file);
+        l=all;
+        this.fireTableDataChanged();
+        System.out.println("Successfully Loaded Data from "+file.getAbsolutePath());
+    }
+    
+    public void filter(float year){
+        l = new LinkedList();
+        for(Entry cur : all){
+            if(cur.getInbet()==year){
+                l.add(cur);
+            }
+        }
+        this.fireTableDataChanged();
+        System.out.println("Successfully filtered Year="+year);
     }
     
 }
